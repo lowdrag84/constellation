@@ -10,6 +10,38 @@ Constellation lets you define **profiles** — named configurations that enable 
 
 A secondary benefit: smaller system prompts delay context compaction, reducing summarization overhead across longer sessions.
 
+## What For?
+
+If you use multiple MCP servers with Copilot CLI, you're paying a hidden tax on every single turn. Here's what we measured:
+
+### 🔢 The numbers are staggering
+
+A real-world profile switch removed **~109 tools** across 6 MCP servers. Each tool definition is ~150–300 tokens of schema. That's **~16,000–33,000 tokens removed from the system prompt** — and the system prompt is re-sent on **every turn**.
+
+Over a 30-turn session, that's **480,000–990,000 tokens saved** on input alone.
+
+### 💰 Your per-turn cost drops by half (or more)
+
+Tool schemas are typically the **heaviest component** of the system prompt — often 50%+ of your per-turn input. Removing unused tools via a profile switch roughly halves your per-turn cost. With a full-to-minimal switch, the reduction can be **2x or better**.
+
+This makes profile switching the single most impactful token optimization available in Copilot CLI today.
+
+### 🧠 Longer sessions stay sharper
+
+A smaller system prompt means more context window is available for your actual conversation. This means:
+
+- **Compaction triggers less frequently** — the system doesn't need to summarize your conversation history as often
+- **Fewer summarization calls** = fewer tokens spent on overhead
+- **This compounds** — the longer your session runs, the more you save
+
+### 🎯 Better responses, not just cheaper ones
+
+When the LLM sees 100+ tool definitions, it has to evaluate all of them on every turn. Reducing to just the 5–10 tools you actually need means:
+
+- **Faster tool selection** — less noise, more signal
+- **Fewer hallucinated tool calls** — the model won't try to use tools from an unrelated domain
+- **More context for your work** — tokens not spent on tool schemas are available for code, conversation, and reasoning
+
 ## Features
 
 | Tool | What it does |
