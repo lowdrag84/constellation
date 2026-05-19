@@ -1,0 +1,23 @@
+# Constellation — Profile Definitions
+# The single source of truth for Copilot CLI configuration profiles.
+# Each profile controls which MCP servers are active per task domain.
+# Layer 1: profile_switch (full replacement, user-only)
+# Layer 2: svr_load/svr_unload (single-MCP, additive/subtractive, pipeline + user)
+
+# All MCP servers registered for à la carte loading (0 total)
+# Run setup.ps1 to auto-populate from your mcp-config.json,
+# or use svr_register to add servers manually.
+all_mcp_servers: []
+
+# Always-on components (never disabled regardless of profile)
+always_on:
+  skills: []
+  instructions: []
+
+profiles:
+  lean:
+    description: "Minimal footprint for general tasks and quick questions"
+    mcp_servers: []
+    plugins: []
+    working_dir: null
+    hint: "Quick questions, general coding, starting a session"

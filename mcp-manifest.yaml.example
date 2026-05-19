@@ -1,0 +1,17 @@
+# MCP Capability Manifest
+# Read this file to determine which MCP server to load for a given task.
+# Agents/LLMs consult this BEFORE calling svr_load so they know which
+# MCP provides the tools they need — even when the MCP is not yet active.
+#
+# Source of truth for MCP server names: profiles.yaml → all_mcp_servers
+# This file adds capability descriptions only — it does NOT control loading.
+
+servers:
+  # Add your MCP servers here using svr_register, or manually:
+  #
+  # my-server:
+  #   description: "What this server does"
+  #   capabilities:
+  #     - "Capability 1"
+  #     - "Capability 2"
+  #   use_when: "When the user asks about X"
