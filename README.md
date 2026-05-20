@@ -73,7 +73,7 @@ When you load MCPs à la carte (e.g., `svr_load kusto` then `svr_load azure-devo
 ### Option A: Setup script (recommended)
 
 ```powershell
-git clone https://github.com/gacurtin_microsoft/constellation.git
+git clone https://github.com/<your-org>/constellation.git
 cd constellation
 .\setup.ps1
 ```
@@ -104,11 +104,11 @@ copy mcp-manifest.yaml.example ~\.copilot\mcp-manifest.yaml
 
 In a Copilot CLI session, ask:
 
-> "Clone gacurtin_microsoft/constellation and run the setup script"
+> "Clone `<your-org>/constellation` and run the setup script"
 
 Or for fully hands-off setup:
 
-> "Install the Constellation extension from gacurtin_microsoft/constellation. Scan my MCP config and register all servers."
+> "Install the Constellation extension from `<your-org>/constellation`. Scan my MCP config and register all servers."
 
 The LLM can run `setup.ps1` or perform the manual steps directly.
 
@@ -184,6 +184,8 @@ See [docs/yaml-format.md](docs/yaml-format.md) for complete format documentation
 Constellation is a [Copilot CLI extension](https://docs.github.com/en/copilot/github-copilot-in-the-cli) — a Node.js ES module that communicates with the CLI via JSON-RPC over stdio.
 
 The key SDK capability is `session.rpc.mcp.enable/disable`, which toggles MCP servers **at runtime** without restarting the session. Profile switching simply computes which servers to enable/disable and calls these methods.
+
+> **Note:** The [GitHub Copilot SDK](https://github.com/github/copilot-sdk) is currently in **Public Preview** (`1.0.0-beta.4`). The `session.rpc.mcp.enable/disable` API is a low-level RPC method that exists in the public SDK but does not yet have dedicated documentation — it may change between beta versions.
 
 The extension has zero external dependencies. The `@github/copilot-sdk/extension` import is automatically resolved by the CLI runtime — no `npm install` needed.
 
