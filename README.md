@@ -73,7 +73,7 @@ When you load MCPs à la carte (e.g., `svr_load kusto` then `svr_load azure-devo
 ### Option A: Setup script (recommended)
 
 ```powershell
-git clone https://github.com/<your-org>/constellation.git
+git clone https://github.com/lowdrag84/constellation.git
 cd constellation
 .\setup.ps1
 ```
@@ -104,11 +104,11 @@ copy mcp-manifest.yaml.example ~\.copilot\mcp-manifest.yaml
 
 In a Copilot CLI session, ask:
 
-> "Clone `<your-org>/constellation` and run the setup script"
+> "Clone `lowdrag84/constellation` and run the setup script"
 
 Or for fully hands-off setup:
 
-> "Install the Constellation extension from `<your-org>/constellation`. Scan my MCP config and register all servers."
+> "Install the Constellation extension from `lowdrag84/constellation`. Scan my MCP config and register all servers."
 
 The LLM can run `setup.ps1` or perform the manual steps directly.
 
